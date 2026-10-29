@@ -85,16 +85,16 @@ public class Exercises {
      */
     public static int min(ListNode head) {
         ListNode current = head;
-        int minVal = 0;
+        
 
         if (current == null) {
             return Integer.MAX_VALUE; 
         } 
 
-        
+        int minVal = head.data;
         while (current != null) {
-            if (current.data > current.next.data) {
-                minVal = current.next.data;
+            if (current.data < minVal) {
+                minVal = current.data;
             }
             current = current.next;
         }
