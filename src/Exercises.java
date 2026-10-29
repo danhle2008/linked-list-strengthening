@@ -60,7 +60,16 @@ public class Exercises {
      * @return the head of the list with the last element removed
      */
     public static ListNode removeLast(ListNode head) {
-        return null;
+        ListNode current = head;
+        if (head == null || head.next == null) {
+            return null; 
+        }
+
+        while (current.next.next != null) {
+            current = current.next;
+        }
+        current.next = null;
+        return head;
     }
 
     /**
@@ -75,7 +84,21 @@ public class Exercises {
      * @return the minimum value in the list 
      */
     public static int min(ListNode head) {
-        return -1;
+        ListNode current = head;
+        int minVal = 0;
+
+        if (current == null) {
+            return Integer.MAX_VALUE; 
+        } 
+
+        
+        while (current != null) {
+            if (current.data > current.next.data) {
+                minVal = current.next.data;
+            }
+            current = current.next;
+        }
+        return minVal;
     }
 
     /**
